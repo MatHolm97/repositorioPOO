@@ -6,7 +6,7 @@ from Personaje import *
 print("")
 print("#### datos heroe #")
 especieH= input("Escribe la especie ")
-nombreH= input("Escribe el nombre")
+nombreH= input("Escribe el nombre") 
 alturaH= float(input("Escribe la altura")) 
 recargarH= int(input("Cunatas balas "))
 

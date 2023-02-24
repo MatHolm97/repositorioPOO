@@ -9,7 +9,7 @@ class Personaje:
     #atriutos
     especie= "Humano"
     nombre= "Master chief"
-    altura= "2.70"
+    altura= "2.70" 
     
     #metodos
     def correr(self,status): 
