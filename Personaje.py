@@ -12,7 +12,7 @@ class Personaje:
     altura= "2.70"
     
     #metodos
-    def correr(self,status):
+    def correr(self,status): 
         if(status):
             print("EL personaje "+ self.__nombre+ "esta corriendo")
         else:
@@ -25,6 +25,9 @@ class Personaje:
         cargador=10
         cargador= cargador + municiones
         print("El arma tiene " + str(cargador) + "balas")
+        
+    def __pensar(self):
+        print("Estoy pensando")
         
         #declarar get y set
         

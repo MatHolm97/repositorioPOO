@@ -7,7 +7,7 @@ print("")
 print("#### datos heroe #")
 especieH= input("Escribe la especie ")
 nombreH= input("Escribe el nombre")
-alturaH= float(input("Escribe la altura"))
+alturaH= float(input("Escribe la altura")) 
 recargarH= int(input("Cunatas balas "))
 
 print("")
@@ -22,7 +22,10 @@ recargarV= int(input("Cunatas balas "))
 heroe= Personaje(especieH,nombreH,alturaH)
 villano= Personaje(especieV,nombreV,alturaV)
 
-#3 usar atriutos
+#3 usar atriutos jiji
+
+
+
 print("")
 print("El personaje se llama: "+ heroe.getNombre())
 print("El personaje es: "+ heroe.getEspecie())
