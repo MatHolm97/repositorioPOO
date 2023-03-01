@@ -2,6 +2,13 @@ from tkinter import Tk,Button,Frame,messagebox
 
 def mostrarMensajes():
     messagebox.showinfo("Aviso","Presionaste boton azul")
+    messagebox.showinfo("Error","No presioaste el amarillo")
+    print(messagebox.askyesno("Pregunta","Ella jugo con tu corazon?"))
+    
+def agregarBoton():
+    botonVerde.config(text= "+", bg="green", fg= "red")
+    botonNuevo= Button(seccion3,text="Nuevo",  bg="green", fg= "red")
+    botonNuevo.pack()
 
 #1 ventana
 ventana= Tk()
@@ -28,7 +35,7 @@ botonNaranja.grid(row=0, column=0)
 botonRosa= Button(seccion2,text="boton rosa",fg="pink")
 botonRosa.grid(row=1, column=0)
 
-botonVerde= Button(seccion3,text="boton verde",fg="green")
+botonVerde= Button(seccion3,text="boton verde",fg="green", command=agregarBoton)
 botonVerde.pack()
 
 
