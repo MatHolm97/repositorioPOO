@@ -38,11 +38,11 @@ class GUI:
     def __init__(self, master):
         self.master = master
         master.title("Te voy a dar una Clave secreta")
-        self.master.configure(bg="blue")
+        self.master.configure(bg="white")
 
         self.password_generator = PasswordGenerator()
 
-        # Longitud de la contraseña
+     
         self.length_frame = tk.Frame(master)
         self.length_label = tk.Label(self.length_frame, bg="#FFA500" ,text="Longitud de la contraseña:")
         self.length_label.pack(side=tk.LEFT)
@@ -51,30 +51,30 @@ class GUI:
         self.length_entry.pack(side=tk.LEFT)
         self.length_frame.pack()
 
-        # Incluir mayúsculas
+       
         self.uppercase_var = tk.BooleanVar()
         self.uppercase_var.set(True)
         self.uppercase_checkbutton = tk.Checkbutton(master, bg="blue" ,text="Incluir mayúsculas", variable=self.uppercase_var)
         self.uppercase_checkbutton.pack()
 
-        # Incluir caracteres especiales
+       
         self.special_var = tk.BooleanVar()
         self.special_var.set(True)
         self.special_checkbutton = tk.Checkbutton(master, bg="blue" ,text="Incluir caracteres especiales", variable=self.special_var)
         self.special_checkbutton.pack()
 
-        # Comprobar fortaleza de la contraseña
+        
         self.strength_var = tk.BooleanVar()
         self.strength_checkbutton = tk.Checkbutton(master, bg="blue", text="Comprobar fortaleza de la contraseña", variable=self.strength_var)
         self.strength_checkbutton.pack()
 
-        # Botón para generar la contraseña
+       
         self.generate_button = tk.Button(master, bg="blue",fg="orange",  text="Generar contraseña", command=self.generate_password)
         self.generate_button.pack()
         
     
 
-        # Contraseña generada
+       
         self.password_frame = tk.Frame(master)
         self.password_label = tk.Label(self.password_frame, bg="orange" ,text="Contraseña generada:")
         self.password_label.pack(side=tk.BOTTOM)
@@ -99,22 +99,22 @@ class GUI:
             messagebox.showerror("Error", "La longitud debe ser un número entero")
             return
 
-    # Generar la contraseña
+   
         self.password_generator.length = length
         self.password_generator.include_uppercase = self.uppercase_var.get()
         self.password_generator.include_special = self.special_var.get()
         password = self.password_generator.generate_password()
 
-    # Mostrar la contraseña generada
+   
         self.password_entry.config(state=tk.NORMAL)
         self.password_entry.delete(0, tk.END)
-        #self.password_entry.insert(0, password )
+      
         self.password_entry.insert(0,  messagebox.showinfo("Fortaleza de la contraseña", f" la contraseña es: {password}") )
         self.password_entry.config(state=tk.DISABLED)
         self.password_entry.config(bg="blue")
         
 
-    # Comprobar la fortaleza de la contraseña
+   
         if self.strength_var.get():
             score = self.password_generator.check_strength(password)
             if score == 0:
