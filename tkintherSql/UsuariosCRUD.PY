@@ -6,7 +6,20 @@ from controladorBD import *
 controlador= controladorBD()
 
 def ejecutaInsert():
-    controlador.guardarUsuario(varNom.get, varCor.get, varCon.get)
+    controlador.guardarUsuario(varNom.get, varCor.get, varCon.get())
+    
+def ejecutarSelect():
+    rsUsuario= controlador.consultaUsuario(varBus.get())
+    
+    for usu in rsUsuario:
+        cadena= str(usu[0])+" "+ usu[1]+" "+ usu[2]+" " + str(usu[3])
+        
+        if(rsUsuario):
+            print(cadena)
+        else:
+            messagebox.showinfo("Success","Success")
+        
+       
 
 Ventana= Tk()
 Ventana.title("CRUD Usuarios")
@@ -35,6 +48,18 @@ lblCon= Label(pestana1, text="NombreContraseña: ").pack()
 txtCon= Entry(pestana1, textvariable=varCon).pack()
 
 btnGuardar= Button(pestana1, text="Guardar" , command=ejecutaInsert).pack()
+
+
+
+titulo= Label(pestana2, text=" Buscar usuario", fg="blue" ,font=("Modern",18) ).pack()
+
+varBus= tk.StringVar()
+lbid= Label(pestana2, text="id de usuario: ").pack()
+txtid= Entry(pestana2, textvariable=varBus).pack()
+btnBusqueda= Button(pestana2, text="Buscar", command=ejecutaSelectU).pack()
+
+suBus=Label(pestana2,text="Registrado:",fg="blue",font=("Modern",18) ).pack()
+textBus= tk.Text(pestana2,height=5,width=52).pack()
 
 
 panel.add(pestana1,text="Formulario de usuarios")
